@@ -10,7 +10,6 @@
 		0092E994E1BE476E9229E062 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5591A370D3794EB28999899B /* Poppins-ExtraBoldItalic.ttf */; };
 		00E356F31AD99517003FC87E /* ElectTDriverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ElectTDriverTests.m */; };
 		0B844AF2ECBE4C3BAA8C7BF2 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E41561669C04D439EBEC2F7 /* Poppins-Medium.ttf */; };
-		0C80B921A6F3F58F76C31292 /* libPods-ElectTDriver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-ElectTDriver.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -23,12 +22,13 @@
 		3455A9C8861A444D816FDF55 /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBED95A2C4CA46E293E41865 /* Poppins-MediumItalic.ttf */; };
 		34A48D18DA1949F4AC7EBA98 /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BF7BF8AB9D14C55933C4089 /* Poppins-BoldItalic.ttf */; };
 		430541180AAF4961B38465CA /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1EFDEDA35F54FD8A04C7195 /* Poppins-Thin.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-ElectTDriver-ElectTDriverTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-ElectTDriver-ElectTDriverTests.a */; };
+		75039F4261DB58476FFB41B6 /* libPods-ElectTDriver-ElectTDriverTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 054B4DB6DB8FA91243A0E87A /* libPods-ElectTDriver-ElectTDriverTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		82CEFD490B6547A1A3956101 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609BB13AAC7B4A169150345F /* Poppins-ExtraBold.ttf */; };
 		8E2BD61C7A71499AB3382BD6 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F260A90A6CC14C77A1084FE3 /* Poppins-LightItalic.ttf */; };
 		95C92A799BA04ABA95342543 /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8BCA09BA73644F878DB900CA /* Poppins-ExtraLight.ttf */; };
 		99CBE8ECFF0047729A5C9F49 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 322ADAA1CB784D879D7FE464 /* Poppins-ThinItalic.ttf */; };
+		BA5F35EBF5CBB0F3E491090F /* libPods-ElectTDriver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9A8E77332E6815403EE328 /* libPods-ElectTDriver.a */; };
 		F7DAB6B215F84605B9A08306 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500D94833CA1468C899AA4DD /* Poppins-Regular.ttf */; };
 		F8AB622240CC4951B4DFB523 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E61F553C79E4150B2D701E1 /* Poppins-ExtraLightItalic.ttf */; };
 		F94ACEA02FB544D6BF4FFFF6 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2979039C97684F2DB675FBFF /* Poppins-Bold.ttf */; };
@@ -48,34 +48,34 @@
 		00E356EE1AD99517003FC87E /* ElectTDriverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectTDriverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ElectTDriverTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElectTDriverTests.m; sourceTree = "<group>"; };
+		054B4DB6DB8FA91243A0E87A /* libPods-ElectTDriver-ElectTDriverTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElectTDriver-ElectTDriverTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A916DA5E8FE16AD7713B196 /* Pods-ElectTDriver-ElectTDriverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver-ElectTDriverTests.release.xcconfig"; path = "Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ElectTDriver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectTDriver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ElectTDriver/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ElectTDriver/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ElectTDriver/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ElectTDriver/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ElectTDriver/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-ElectTDriver-ElectTDriverTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElectTDriver-ElectTDriverTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2979039C97684F2DB675FBFF /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/Fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		322ADAA1CB784D879D7FE464 /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../src/assets/Fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-ElectTDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver.debug.xcconfig"; path = "Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver.debug.xcconfig"; sourceTree = "<group>"; };
+		3484A30C3AB8A9E5D34925E0 /* Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E61F553C79E4150B2D701E1 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../src/assets/Fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		4E41561669C04D439EBEC2F7 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/Fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		4EEE8E815D5B4D2290545485 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../src/assets/Fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
 		500D94833CA1468C899AA4DD /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/Fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		5591A370D3794EB28999899B /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../src/assets/Fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-ElectTDriver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver.release.xcconfig"; path = "Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig"; path = "Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5BFA3D919A424433BB5B65B2 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../src/assets/Fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-ElectTDriver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElectTDriver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		609BB13AAC7B4A169150345F /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../src/assets/Fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		611339257670923117DAD160 /* Pods-ElectTDriver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver.release.xcconfig"; path = "Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver.release.xcconfig"; sourceTree = "<group>"; };
 		69503507D56E46A9AC3AAC13 /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../src/assets/Fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
 		7BF7BF8AB9D14C55933C4089 /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../src/assets/Fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ElectTDriver/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-ElectTDriver-ElectTDriverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver-ElectTDriverTests.release.xcconfig"; path = "Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests.release.xcconfig"; sourceTree = "<group>"; };
 		8BCA09BA73644F878DB900CA /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../src/assets/Fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		8FE72821C9518A3E80A99C0E /* Pods-ElectTDriver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectTDriver.debug.xcconfig"; path = "Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver.debug.xcconfig"; sourceTree = "<group>"; };
 		BBED95A2C4CA46E293E41865 /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../src/assets/Fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		BCB04045AAC94A75B417FE4A /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../src/assets/Fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		C1EFDEDA35F54FD8A04C7195 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/Fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		CD9A8E77332E6815403EE328 /* libPods-ElectTDriver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElectTDriver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB07F840D9BC408FBB6EF5DA /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../src/assets/Fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F260A90A6CC14C77A1084FE3 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../src/assets/Fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-ElectTDriver-ElectTDriverTests.a in Frameworks */,
+				75039F4261DB58476FFB41B6 /* libPods-ElectTDriver-ElectTDriverTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-ElectTDriver.a in Frameworks */,
+				BA5F35EBF5CBB0F3E491090F /* libPods-ElectTDriver.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-ElectTDriver.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-ElectTDriver-ElectTDriverTests.a */,
+				CD9A8E77332E6815403EE328 /* libPods-ElectTDriver.a */,
+				054B4DB6DB8FA91243A0E87A /* libPods-ElectTDriver-ElectTDriverTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,10 +202,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-ElectTDriver.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-ElectTDriver.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-ElectTDriver-ElectTDriverTests.release.xcconfig */,
+				8FE72821C9518A3E80A99C0E /* Pods-ElectTDriver.debug.xcconfig */,
+				611339257670923117DAD160 /* Pods-ElectTDriver.release.xcconfig */,
+				3484A30C3AB8A9E5D34925E0 /* Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig */,
+				0A916DA5E8FE16AD7713B196 /* Pods-ElectTDriver-ElectTDriverTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -217,12 +217,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ElectTDriverTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				37FEECA4A458ED1ABAA18D55 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				55EFE4ECBA9434AB4936FD81 /* [CP] Embed Pods Frameworks */,
+				8187604151172B298B6327A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,14 +238,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ElectTDriver" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				899BEF07C48C5C2BFE872FD2 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				81EB7A24CC6EA78E5627F250 /* [CP] Embed Pods Frameworks */,
+				69868E39F48070EB456F2F2C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,24 +347,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		37FEECA4A458ED1ABAA18D55 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -386,7 +369,75 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		55EFE4ECBA9434AB4936FD81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69868E39F48070EB456F2F2C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8187604151172B298B6327A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81EB7A24CC6EA78E5627F250 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		899BEF07C48C5C2BFE872FD2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -406,57 +457,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver/Pods-ElectTDriver-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ElectTDriver-ElectTDriverTests/Pods-ElectTDriver-ElectTDriverTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -511,7 +511,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig */;
+			baseConfigurationReference = 3484A30C3AB8A9E5D34925E0 /* Pods-ElectTDriver-ElectTDriverTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -539,7 +539,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-ElectTDriver-ElectTDriverTests.release.xcconfig */;
+			baseConfigurationReference = 0A916DA5E8FE16AD7713B196 /* Pods-ElectTDriver-ElectTDriverTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -564,7 +564,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-ElectTDriver.debug.xcconfig */;
+			baseConfigurationReference = 8FE72821C9518A3E80A99C0E /* Pods-ElectTDriver.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -597,7 +597,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-ElectTDriver.release.xcconfig */;
+			baseConfigurationReference = 611339257670923117DAD160 /* Pods-ElectTDriver.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

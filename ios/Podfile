@@ -51,6 +51,30 @@ target 'ElectTDriver' do
     # Pods for testing
   end
 
+  def fix_fb_react_native_spec(installer)
+    installer.pods_project.targets.each do |target|
+      if target.name == 'FBReactNativeSpec'
+        target.build_configurations.each do |config|
+          if config.name == 'Debug' or config.name == 'Release'
+            config.build_settings['NODE_BINARY'] = '/usr/local/bin/node'
+          end
+        end
+      end
+    end
+  end
+
+  def __apply_Xcode_14_3_RC_post_install_workaround(installer)
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        current_target = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+        minimum_target = min_ios_version_supported
+        if current_target.to_f < minimum_target.to_f
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = minimum_target
+        end
+      end
+    end
+  end
+
   post_install do |installer|
     react_native_post_install(
       installer,
@@ -59,5 +83,7 @@ target 'ElectTDriver' do
       :mac_catalyst_enabled => false
     )
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    fix_fb_react_native_spec(installer)
+    __apply_Xcode_14_3_RC_post_install_workaround(installer)
   end
 end

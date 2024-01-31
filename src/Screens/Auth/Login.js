@@ -20,7 +20,8 @@ const Login = ({ navigation }) => {
   const loginHandle = () => {
     const data = {
       email: email,
-      password: password
+      password: password,
+      role:"driver"
     }
     setLoading(true)
     dispatch(LoginUser(data, Toast, setLoading))

@@ -245,7 +245,7 @@ export const SavedCards = () => async (dispatch) => {
     try {
 
         const response = await instance.get(`/invoice/payment-method`);
-        console.log("REsponse of card", response)
+        // console.log("REsponse of card", response)
         return response
 
     } catch (error) {

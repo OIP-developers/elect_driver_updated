@@ -26,7 +26,7 @@ const Electpro = ({ navigation }) => {
   const dispatch = useDispatch()
   const PackagesData = async () => {
     const data = await dispatch(Packages())
-    console.log("Packages", data)
+    // console.log("Packages", data)
     setPackagesList(data)
   }
   useEffect(() => {
@@ -37,7 +37,7 @@ const Electpro = ({ navigation }) => {
 
   const CardsCheck = async () => {
     const data = await dispatch(SavedCards())
-    console.log("my cards Details", data?.data?.data?.paymentMethod)
+    // console.log("my cards Details", data?.data?.data?.paymentMethod)
     if (data?.data?.data?.paymentMethod?.length == 0) {
       setModalVisible(true)
     }
@@ -49,7 +49,7 @@ const Electpro = ({ navigation }) => {
   }
   const subcribePackage = (item) => {
     const data = {
-      subscriptionId: "4a414f1b-eefd-434e-96ab-a0673b38efc8"
+      subscriptionId: item
     }
     dispatch(Subscribe(item, Toast))
     dispatch(SubscribePaymentIntent(data, Toast)).then(() => {
