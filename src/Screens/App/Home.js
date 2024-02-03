@@ -8,7 +8,8 @@ import {
   Image,
   FlatList,
   ActivityIndicator,
-  Platform
+  Platform,
+  Alert
 } from 'react-native';
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import Colors from '../../assets/Colors/Colors';
@@ -152,15 +153,16 @@ const Home = ({ navigation }) => {
         style={{
           flexDirection: 'row',
           alignItems: 'center',
-
-          padding: width * 0.045,
+          padding: 5,
+          marginTop: 10
+          // padding: width * 0.045,
         }}>
         <Image
           style={{
             // resizeMode: "contain",
             alignSelf: "center",
             margin: width * 0.01,
-            height: height * 0.08,
+            height: width * 0.15,
             width: width * 0.15,
             backgroundColor: Colors.theme,
             resizeMode: "cover",
@@ -181,7 +183,7 @@ const Home = ({ navigation }) => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 marginLeft: width * 0.03,
-                marginTop: height * 0.01,
+                marginTop: height * 0.01
               }}>
               {/* Accept  */}
               <TouchableOpacity
@@ -233,8 +235,8 @@ const Home = ({ navigation }) => {
                   },
                   shadowOpacity: 0.29,
                   shadowRadius: 4.65,
-
                   elevation: 7,
+                  marginLeft: 4
                 }}>
                 <Text
                   style={{
@@ -247,22 +249,32 @@ const Home = ({ navigation }) => {
               </TouchableOpacity>
             </View>
           </View>
-          <Text
-            style={{
-              fontSize: width * 0.03,
-              marginLeft: width * 0.05,
-              // marginTop: -height * 0.0125,
-              fontStyle: 'italic',
-              color: Colors.text,
-              marginBottom: height * 0.0025,
-              backgroundColor: '#d8eeed',
-              width: width * 0.45,
-              borderRadius: Platform.OS == "ios" ? width * 0.5 : width * 0.023,
-              paddingLeft: width * 0.018,
-            }}>
-            {item?.item?.pickup_address.slice(0, 8)}.. TO{' '}
-            {item?.item?.dropoff_address.slice(2, 15)}...
-          </Text>
+          <TouchableOpacity
+          onPress={()=>{
+            Alert.alert(
+              '',
+              `${item?.item?.pickup_address}\n\nTO\n\n${item?.item?.dropoff_address}`
+            )
+          }}
+          >
+            <Text
+              style={{
+                fontSize: width * 0.03,
+                marginLeft: width * 0.05,
+                // marginTop: -height * 0.0125,
+                fontStyle: 'italic',
+                color: Colors.text,
+                marginBottom: height * 0.0025,
+                backgroundColor: '#d8eeed',
+                // width: width * 0.45,
+                borderRadius: Platform.OS == "ios" ? width * 0.5 : width * 0.023,
+                paddingLeft: width * 0.018,
+                paddingVertical: 3
+              }}>
+              {item?.item?.pickup_address.slice(0, 10)}.. TO{' '}
+              {item?.item?.dropoff_address.slice(0, 10)}..., see more
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -288,7 +300,7 @@ const Home = ({ navigation }) => {
               flex: 1,
             }}
             initialRegion={live}>
-            <Marker
+            {/* <Marker
               coordinate={live}
             // image={ImagePath.DropOff}
             />
@@ -317,7 +329,7 @@ const Home = ({ navigation }) => {
                 // console.log("dusration", result.duration)
               }}
               optimizeWaypoints={true}
-            />
+            /> */}
           </MapView>
 
           {MyStatus === true ? (
