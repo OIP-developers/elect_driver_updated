@@ -63,7 +63,7 @@ const AddWallet = ({ navigation }) => {
                 <Toast ref={(ref) => { Toast.setref(ref) }} />
                 <View
                     style={{
-                        height: height * height,
+                        height: height * 1.5,
                         backgroundColor: Country == "UKRAINE" ? Colors.Bluetheme : Colors.theme,
                     }}
                 >

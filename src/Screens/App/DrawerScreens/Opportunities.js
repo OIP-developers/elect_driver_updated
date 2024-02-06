@@ -20,27 +20,34 @@ const Opportunities = ({ navigation }) => {
     const Country = useSelector((state) => state?.auth?.Country?.toUpperCase())
 
     const ChangePassword = () => {
-        setLoading(true)
-        const data = {
-            oldPassword: oldPass,
-            password: newPass,
-        }
-        if (newPass !== cNewPass) {
+        if (oldPass && newPass && cNewPass) {
+            setLoading(true)
+            const data = {
+                oldPassword: oldPass,
+                password: newPass,
+            }
+            if (newPass !== cNewPass) {
+                Toast.show({
+                    type: 'error',
+                    text1: Country == "UKRAINE" ? "пароль не збігається" : 'password not match',
+                    text2: Country == "UKRAINE" ? "Новий пароль і пароль підтвердження не збігаються" : 'New password and Confirm password does not match '
+                })
+                setLoading(false)
+            } else if (newPass?.length < 8 && cNewPass?.length < 8) {
+                Toast.show({
+                    type: 'error',
+                    text1: Country == "UKRAINE" ? "пароль не збігається" : 'password does not match',
+                    text2: Country == "UKRAINE" ? "Новий пароль і пароль підтвердження не збігаються" : 'New password and Confirm password does not match '
+                })
+                setLoading(false)
+            } else {
+                dispatch(ResetPassword(data, Toast, navigation, setLoading))
+            }
+        }else{
             Toast.show({
-                type: 'error',
-                text1: Country == "UKRAINE" ? "пароль не збігається" : 'password not match',
-                text2: Country == "UKRAINE" ? "Новий пароль і пароль підтвердження не збігаються" : 'New password and Confirm password does not match '
+                type:'error',
+                text1: Country == "UKRAINE" ? "" : 'All fields are required'
             })
-            setLoading(false)
-        } else if (newPass.length < 8 && cNewPass.length < 8) {
-            Toast.show({
-                type: 'error',
-                text1: Country == "UKRAINE" ? "пароль не збігається" : 'password does not match',
-                text2: Country == "UKRAINE" ? "Новий пароль і пароль підтвердження не збігаються" : 'New password and Confirm password does not match '
-            })
-            setLoading(false)
-        } else {
-            dispatch(ResetPassword(data, Toast, navigation, setLoading))
         }
     }
 

@@ -205,7 +205,20 @@ const Home = ({ navigation }) => {
                   elevation: 7,
                 }}
                 onPress={() => {
-                  AcceptRide(item);
+                  Alert.alert(
+                    'Are you sure?',
+                    'You want to accept this ride?',
+                    [
+                      {
+                        text: 'Cancel',
+                        style: 'cancel',
+                      },
+                      {
+                        text: 'Accept',
+                        onPress: () => AcceptRide(item),
+                      },
+                    ]
+                  )
                 }}>
                 <Text
                   style={{
@@ -219,7 +232,20 @@ const Home = ({ navigation }) => {
               {/* reject  */}
               <TouchableOpacity
                 onPress={() => {
-                  setRides(Rides?.filter(e => e.id !== item.item.id));
+                  Alert.alert(
+                    'Are you sure?',
+                    'You want to reject this ride?',
+                    [
+                      {
+                        text: 'Cancel',
+                        style: 'cancel',
+                      },
+                      {
+                        text: 'Reject',
+                        onPress: () => setRides(Rides?.filter(e => e.id !== item.item.id)),
+                      },
+                    ]
+                  )
                 }}
                 style={{
                   backgroundColor: Colors.white,

@@ -6,6 +6,8 @@ import { SecondayButton } from '../../Compoents/Buttons/BTN'
 import { useDispatch, useSelector } from 'react-redux'
 import { LoginUser } from '../../redux/actions/user.action'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { responsiveHeight } from 'react-native-responsive-dimensions'
 
 let { width, height } = Dimensions.get("window")
 
@@ -21,7 +23,7 @@ const Login = ({ navigation }) => {
     const data = {
       email: email,
       password: password,
-      role:"driver"
+      role: "driver"
     }
     setLoading(true)
     dispatch(LoginUser(data, Toast, setLoading))
@@ -31,97 +33,99 @@ const Login = ({ navigation }) => {
     <SafeAreaView
       style={{ backgroundColor: Colors.bg, flex: 1 }}
     >
-
-
-      <Image
-        style={styles.logo}
-        source={Country == "UKRAINE" ? require("../../assets/images/logoukr.png") : require("../../assets/images/logo.png")}
-      />
-      <Text
-        style={[styles.welcome, { color: Country == "UKRAINE" ? Colors.Yellow : Colors.theme }]}
-      >
-        {Country == "UKRAINE" ? "З поверненням!" : "Welcome Back!"}
-      </Text>
-      <View
-        style={{ flexDirection: "row" }}
-      >
+      <KeyboardAwareScrollView keyboardShouldPersistTaps="always">
+        <Image
+          style={styles.logo}
+          source={Country == "UKRAINE" ? require("../../assets/images/logoukr.png") : require("../../assets/images/logo.png")}
+        />
         <Text
-          style={styles.statement}
+          style={[styles.welcome, { color: Country == "UKRAINE" ? Colors.Yellow : Colors.theme }]}
         >
-          {Country == "UKRAINE" ? "Немає облікового запису?" : "Don't have an account?"}
+          {Country == "UKRAINE" ? "З поверненням!" : "Welcome Back!"}
         </Text>
-        <TouchableOpacity
-          // onPress={() => { navigation.navigate("SignUp") }}
-          onPress={() => { navigation?.navigate("PersonalDetail") }}
-        >
-          <Text
-            style={[styles.statement2, { color: Country == "UKRAINE" ? Colors.Bluetheme : Colors.Orange }]}
-          >
-            {Country == "UKRAINE" ? "Зареєструватися зараз!" : " Sign Up Now!"}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <Toast ref={(ref) => { Toast.setref(ref) }} />
-      <AuthInput
-        label={Country == "UKRAINE" ? "Електронна пошта" : "Email"}
-        placeholder={Country == "UKRAINE" ? "Введіть свою електронну адресу тут..." : "Enter Your Email here..."}
-        onChangeText={setEmail}
-        value={email}
-      />
-
-
-      <AuthInput
-        label={Country == "UKRAINE" ? "Пароль" : "Password"}
-        placeholder={Country == "UKRAINE" ? "Введіть свій пароль тут..." : "Enter Your Password here..."}
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry={show}
-      />
-
-
-      <View
-        style={{
-          flexDirection: "row",
-          padding: width * 0.035,
-          alignContent: "center",
-          justifyContent: "space-between",
-          paddingHorizontal: width * 0.055,
-          marginTop: height * 0.015
-        }}
-      >
         <View
           style={{ flexDirection: "row" }}
         >
-          <TouchableOpacity
-            activeOpacity={100}
+          <Text
+            style={styles.statement}
           >
-            {/* <Image
+            {Country == "UKRAINE" ? "Немає облікового запису?" : "Don't have an account?"}
+          </Text>
+          <TouchableOpacity
+            // onPress={() => { navigation.navigate("SignUp") }}
+            onPress={() => { navigation?.navigate("PersonalDetail") }}
+          >
+            <Text
+              style={[styles.statement2, { color: Country == "UKRAINE" ? Colors.Bluetheme : Colors.Orange }]}
+            >
+              {Country == "UKRAINE" ? "Зареєструватися зараз!" : " Sign Up Now!"}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <Toast ref={(ref) => { Toast.setref(ref) }} />
+        <AuthInput
+          label={Country == "UKRAINE" ? "Електронна пошта" : "Email"}
+          placeholder={Country == "UKRAINE" ? "Введіть свою електронну адресу тут..." : "Enter Your Email here..."}
+          onChangeText={setEmail}
+          value={email}
+        />
+
+
+        <AuthInput
+          label={Country == "UKRAINE" ? "Пароль" : "Password"}
+          placeholder={Country == "UKRAINE" ? "Введіть свій пароль тут..." : "Enter Your Password here..."}
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry={show}
+        />
+
+
+        <View
+          style={{
+            flexDirection: "row",
+            padding: width * 0.035,
+            alignContent: "center",
+            justifyContent: "space-between",
+            paddingHorizontal: width * 0.055,
+            marginTop: height * 0.015
+          }}
+        >
+          <View
+            style={{ flexDirection: "row" }}
+          >
+            <TouchableOpacity
+              activeOpacity={100}
+            >
+              {/* <Image
               style={{ resizeMode: "contain" }}
               source={require("../../assets/images/uncheck.png")}
             /> */}
-          </TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => { setshow(!show) }}
+            >
+              <Text
+                style={styles.remember}
+              >{show === true ? Country == "UKRAINE" ? "Показати пароль" : "Show Password" : Country == "UKRAINE" ? "Приховати пароль" : "Hide Password"}</Text>
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
-            onPress={() => { setshow(!show) }}
+            onPress={() => { navigation.navigate("ForgetPass") }}
           >
             <Text
-              style={styles.remember}
-            >{show === true ? Country == "UKRAINE" ? "Показати пароль" : "Show Password" : Country == "UKRAINE" ? "Приховати пароль" : "Hide Password"}</Text>
+              style={[styles.Forget, { color: Country == "UKRAINE" ? Colors.Bluetheme : Colors.Orange }]}
+            >
+              {Country == "UKRAINE" ? "Забули пароль?" : "Forgot Password?"}
+            </Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          onPress={() => { navigation.navigate("ForgetPass") }}
-        >
-          <Text
-            style={[styles.Forget, { color: Country == "UKRAINE" ? Colors.Bluetheme : Colors.Orange }]}
-          >
-            {Country == "UKRAINE" ? "Забули пароль?" : "Forgot Password?"}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <SecondayButton
-        onPress={() => { loginHandle() }}
-        title={Loading == true ? <ActivityIndicator size="small" color="#ffffff" /> : Country == "UKRAINE" ? "Увійти" : "Sign In"}
-      />
+        <View style={{paddingBottom:responsiveHeight(4)}}>
+          <SecondayButton
+            onPress={() => { loginHandle() }}
+            title={Loading == true ? <ActivityIndicator size="small" color="#ffffff" /> : Country == "UKRAINE" ? "Увійти" : "Sign In"}
+          />
+        </View>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   )
 }

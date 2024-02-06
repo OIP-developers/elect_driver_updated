@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, TouchableOpacity, Dimensions, Linking, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, TouchableOpacity, Dimensions, Linking, ActivityIndicator, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Colors from '../../../assets/Colors/Colors'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { DefaultCard, WalletDetail, WalletUrl, DeleteCard, SavedCards } from '../../../redux/actions/driver.action'
+import Loader from '../../../Compoents/Loader'
+import { useIsFocused } from '@react-navigation/core'
 const { height, width } = Dimensions.get("window")
 const Wallet = ({ navigation }) => {
     const dispatch = useDispatch()
@@ -11,18 +13,31 @@ const Wallet = ({ navigation }) => {
     const [myWalllet, setmyWalllet] = useState()
     const [URL, setURL] = useState()
     const [Loading, setLoading] = useState(false)
+    const [pageLoading, setPageLoading] = useState(true)
+    const focus=useIsFocused()
 
-    useEffect(() => {
-        cardData()
+    useEffect(()=>{
+        if(focus){
+            setPageLoading(true)
+            Promise.all([cardData(),wallete()])
+            .then(()=>setPageLoading(false))
+        }
+    },[focus])
+    // useEffect(() => {
+    //     if(cardDetail){
+    //         cardData()
+    //     }
 
-    }, [cardDetail])
-    useEffect(() => {
-        wallete()
-
-    }, [myWalllet])
+    // }, [cardDetail])
+    // useEffect(() => {
+    //     if(myWalllet){
+    //         wallete()
+    //     }
+    //     console.log("ddsscualling")
+    // }, [myWalllet])
     const cardData = async () => {
         const data = await dispatch(SavedCards())
-        console.log("my catd dtaada", data?.data?.data?.paymentMethod?.data)
+        // console.log("my catd dtaada", data?.data?.data?.paymentMethod?.data)
         setCardsDetail(data?.data?.data?.paymentMethod)
     }
     const ProfileData = useSelector((state) => state?.auth?.userInfo)
@@ -33,24 +48,28 @@ const Wallet = ({ navigation }) => {
             cardData()
         })
     }
-    console.log("object", URL?.data?.data?.accountLink?.url)
+    // console.log("object", URL?.data?.data?.accountLink?.url)
 
     const wallete = async () => {
         const data = await dispatch(WalletDetail())
-        console.log("wallete data", data)
+        // console.log("wallete data", data)
         setmyWalllet(data?.data?.data)
     }
     const hitUrl = async () => {
         dispatch(WalletUrl(navigation))
 
     }
-    console.log("loadinggggg", Loading)
+    // console.log("loadinggggg", Loading)
     const setDefaultcard = (i) => {
         setLoading(true)
         const data = {
             card: i?.id
         }
         dispatch(DefaultCard(data, setLoading))
+    }
+
+    if(pageLoading){
+        return <Loader/>
     }
     return (
 
@@ -270,7 +289,22 @@ const Wallet = ({ navigation }) => {
                             </View>
                             <TouchableOpacity
                                 // style={}
-                                onPress={() => { deleteCard(i) }}
+                                onPress={() => { 
+                                    Alert.alert(
+                                        'Are you sure?',
+                                        'You want to delete this card',
+                                        [
+                                            {
+                                              text: 'Cancel',
+                                              style: 'cancel',
+                                            },
+                                            {
+                                              text: 'Delete',
+                                              onPress: () => deleteCard(i),
+                                            },
+                                          ]
+                                    ) 
+                                }}
                             >
 
                                 <Image

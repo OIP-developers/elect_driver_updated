@@ -17,6 +17,8 @@ import moment from 'moment/moment';
 import DatePicker from 'react-native-date-picker'
 import { ActivityIndicator } from 'react-native';
 let { height, width } = Dimensions.get('window');
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { responsiveHeight } from 'react-native-responsive-dimensions';
 
 const PersonalDetail = ({ navigation }) => {
   const Country = useSelector((state) => state?.auth?.Country?.toUpperCase())
@@ -49,6 +51,7 @@ const PersonalDetail = ({ navigation }) => {
   };
   return (
     <SafeAreaView style={{ backgroundColor: Colors.bg, flex: 1 }}>
+      <KeyboardAwareScrollView keyboardShouldPersistTaps="always">
       <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity
           onPress={() => {
@@ -147,6 +150,7 @@ const PersonalDetail = ({ navigation }) => {
           alignItems: 'center',
           paddingHorizontal: width * 0.1,
           marginTop: height * 0.11,
+          paddingBottom:responsiveHeight(3)
         }}>
         <IconButton
           source={require('../../assets/images/scan.png')}
@@ -160,6 +164,7 @@ const PersonalDetail = ({ navigation }) => {
           }}
         />
       </View>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   );
 };

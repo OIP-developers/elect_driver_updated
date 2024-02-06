@@ -216,6 +216,7 @@ export const ResetPassword = (data, Toast, navigation, setLoading) => async (dis
 
     }
   } catch (error) {
+    setLoading(false)
     console.log("reset error", error)
     Toast.show({
       type: 'error',

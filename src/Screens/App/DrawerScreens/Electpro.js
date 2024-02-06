@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   View,
   Modal,
-  Pressable
+  Pressable,
+  Alert
 } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import Colors from '../../../assets/Colors/Colors'
@@ -16,6 +17,7 @@ import { PrimaryButton } from "../../../Compoents/Buttons/BTN"
 import { Packages, SavedCards, Subscribe, SubscribePaymentIntent, SubscribedPackages } from '../../../redux/actions/driver.action'
 import { useFocusEffect } from '@react-navigation/native'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
+import Loader from '../../../Compoents/Loader'
 let { width, height } = Dimensions.get("window")
 
 const Electpro = ({ navigation }) => {
@@ -23,6 +25,8 @@ const Electpro = ({ navigation }) => {
   const [PackagesLIst, setPackagesList] = useState()
   const [myPackagesLIst, setMyPackagesList] = useState([])
   const [modalVisible, setModalVisible] = useState(false);
+  const [pageLoading, setPageLoading] = useState(true);
+
   const dispatch = useDispatch()
   const PackagesData = async () => {
     const data = await dispatch(Packages())
@@ -30,9 +34,12 @@ const Electpro = ({ navigation }) => {
     setPackagesList(data)
   }
   useEffect(() => {
-    PackagesData(),
+    Promise.all([
+      PackagesData(),
       CardsCheck(),
       mypackages()
+    ])
+    .then(()=>setPageLoading(false))
   }, [])
 
   const CardsCheck = async () => {
@@ -44,7 +51,7 @@ const Electpro = ({ navigation }) => {
   }
   const mypackages = async () => {
     const data = await dispatch(SubscribedPackages())
-    console.log("my data package", data)
+    // console.log("my data package", data)
     setMyPackagesList(data)
   }
   const subcribePackage = (item) => {
@@ -64,6 +71,10 @@ const Electpro = ({ navigation }) => {
   const handlenOTNOW = () => {
     navigation?.goBack(),
       setModalVisible(false)
+  }
+
+  if(pageLoading){
+    return <Loader/>
   }
 
   return (
@@ -119,7 +130,22 @@ const Electpro = ({ navigation }) => {
                 > Validity: {i?.expireDays !== 0 ? i?.expireDays + " Days" : null} {i?.expireMonths !== 0 ? i?.expireMonths + " Month" : null}{i?.expireYears !== 0 ? i?.expireYears + " Year" : null}</Text>
 
                 <TouchableOpacity
-                  onPress={() => { subcribePackage(i?.id) }}
+                  onPress={() => { 
+                    Alert.alert(
+                      'Are you sure?',
+                      'You want to subscribe this package?',
+                      [
+                        {
+                          text: 'Cancel',
+                          style: 'cancel',
+                        },
+                        {
+                          text: 'Yes',
+                          onPress: () => subcribePackage(i?.id),
+                        },
+                      ]
+                    )
+                    }}
                   style={styles.btn}
                 >
                   <Text
@@ -278,6 +304,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Italic",
     fontSize: width * 0.03,
     color: Colors.metalic,
+    width:'60%'
 
   },
   btn: {
