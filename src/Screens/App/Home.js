@@ -20,6 +20,7 @@ import {
   RequestAccept,
   RideRequests,
   VehicleCheck,
+  rejectRide
 } from '../../redux/actions/driver.action';
 import { Google_API } from '../../config/GoogleApi';
 import MapViewDirections from 'react-native-maps-directions';
@@ -242,7 +243,10 @@ const Home = ({ navigation }) => {
                       },
                       {
                         text: 'Reject',
-                        onPress: () => setRides(Rides?.filter(e => e.id !== item.item.id)),
+                        onPress: () => {
+                          dispatch(rejectRide(item.item.id))
+                          setRides(Rides?.filter(e => e.id !== item.item.id))
+                        },
                       },
                     ]
                   )

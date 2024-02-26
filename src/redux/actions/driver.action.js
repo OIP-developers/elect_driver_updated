@@ -46,6 +46,11 @@ export const VehicleCheck = (data) => async (dispatch) => {
     }
 
 };
+
+export const rejectRide = (id) => async (dispatch) => {
+        return instance.put(`/ride/reject/${id}`);
+};
+
 // ***************************  Requested Ride************************************
 export const RideRequests = async () => {
 
