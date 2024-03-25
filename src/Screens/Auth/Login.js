@@ -11,7 +11,7 @@ import { responsiveHeight } from 'react-native-responsive-dimensions'
 
 let { width, height } = Dimensions.get("window")
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation,fcm }) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [show, setshow] = useState(true)
@@ -23,7 +23,8 @@ const Login = ({ navigation }) => {
     const data = {
       email: email,
       password: password,
-      role: "driver"
+      role: "driver",
+      fcmToken:fcm
     }
     setLoading(true)
     dispatch(LoginUser(data, Toast, setLoading))

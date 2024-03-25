@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "705105344614",
+    "project_id": "elect-17c13",
+    "storage_bucket": "elect-17c13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705105344614:android:06ab2a2d4c39a0790855a7",
+        "android_client_info": {
+          "package_name": "com.elect_t"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMC6jaHqsSV0J0b5GPIhUYsJekPxxNb2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705105344614:android:1ffc5880ad4e11d30855a7",
+        "android_client_info": {
+          "package_name": "com.electtdriver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMC6jaHqsSV0J0b5GPIhUYsJekPxxNb2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

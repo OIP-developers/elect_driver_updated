@@ -7,18 +7,20 @@ import SplashScreen from 'react-native-splash-screen';
 import { useDispatch, useSelector } from 'react-redux';
 import { CountryDetect } from '../redux/actions/user.action';
 import { CurrentLocation, locationPermission } from '../config/livelocationhelper';
+import messaging from '@react-native-firebase/messaging';
 
 const MainNav = () => {
   const [Side, setSide] = useState(false);
   const [location, setlocation] = useState()
   const User_controller = useSelector((state) => state?.auth?.accesToken?.user?.phone_status)
   // const token = useSelector((state) => state?.auth?.accesToken);
+  const [fcm, setFcm] = useState("")
   console.log("User_controller", User_controller);
   useEffect(() => {
     SplashScreen.hide()
 
     getCurrentLocation()
-
+    requestUserPermission()
   }, [])
   const getCurrentLocation = async () => {
     const PermissionDenied = await locationPermission()
@@ -37,6 +39,18 @@ const MainNav = () => {
       dispatch(CountryDetect(data))
     }
   }
+  async function requestUserPermission() {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+    if (enabled) {
+      const token = await messaging().getToken()
+      console.log("token",token)
+      setFcm(token)
+    }
+  }
   const dispatch = useDispatch()
   // const Locationverfication = () => {
   //   const data = {
@@ -48,7 +62,7 @@ const MainNav = () => {
   // }
   return (
     <NavigationContainer>
-      {User_controller == "VERIFIED" ? <AppNav /> : <AuthNav />}
+      {User_controller == "VERIFIED" ? <AppNav /> : <AuthNav fcm={fcm}/>}
     </NavigationContainer>
   );
 };

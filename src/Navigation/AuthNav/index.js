@@ -16,7 +16,7 @@ import Information from '../../Screens/Auth/Information';
 import Agreement from '../../Screens/Auth/Agreement';
 import VehicleInfo from '../../Screens/Auth/VehicleInfo';
 
-const AuthNav = () => {
+const AuthNav = ({fcm}) => {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
@@ -31,7 +31,7 @@ const AuthNav = () => {
     // initialRouteName="Vehicle"
     >
       <Stack.Screen name="LandingPage" component={LandingPage} />
-      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Login" component={()=><Login fcm={fcm}/>} />
       <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="ForgetPass" component={ForgetPass} />
       <Stack.Screen name="Ottp" component={Ottp} />
