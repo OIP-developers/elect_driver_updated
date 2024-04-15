@@ -6,7 +6,8 @@ import { PrimaryButton } from '../../../Compoents/Buttons/BTN'
 import { useDispatch, useSelector } from 'react-redux'
 import { ResetPassword } from '../../../redux/actions/user.action'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
-
+import { responsiveHeight } from 'react-native-responsive-dimensions'
+import ValidatePassword from '../../../utils/validatePassword'
 const { height, width } = Dimensions.get("window")
 const Opportunities = ({ navigation }) => {
     const [edit, setedit] = useState(false)
@@ -18,38 +19,18 @@ const Opportunities = ({ navigation }) => {
     const [Loading, setLoading] = useState(false)
     const dispatch = useDispatch()
     const Country = useSelector((state) => state?.auth?.Country?.toUpperCase())
+    const [passwordError, setPasswordError] = useState('')
 
     const ChangePassword = () => {
-        if (oldPass && newPass && cNewPass) {
-            setLoading(true)
-            const data = {
-                oldPassword: oldPass,
-                password: newPass,
-            }
-            if (newPass !== cNewPass) {
-                Toast.show({
-                    type: 'error',
-                    text1: Country == "UKRAINE" ? "пароль не збігається" : 'password not match',
-                    text2: Country == "UKRAINE" ? "Новий пароль і пароль підтвердження не збігаються" : 'New password and Confirm password does not match '
-                })
-                setLoading(false)
-            } else if (newPass?.length < 8 && cNewPass?.length < 8) {
-                Toast.show({
-                    type: 'error',
-                    text1: Country == "UKRAINE" ? "пароль не збігається" : 'password does not match',
-                    text2: Country == "UKRAINE" ? "Новий пароль і пароль підтвердження не збігаються" : 'New password and Confirm password does not match '
-                })
-                setLoading(false)
-            } else {
-                dispatch(ResetPassword(data, Toast, navigation, setLoading))
-            }
-        }else{
-            Toast.show({
-                type:'error',
-                text1: Country == "UKRAINE" ? "" : 'All fields are required'
-            })
+        const data = {
+          oldPassword: oldPass,
+          password: newPass,
         }
-    }
+        if (!ValidatePassword(oldPass) && !ValidatePassword(newPass) && !ValidatePassword(cNewPass) && cNewPass==newPass) {
+          setLoading(true)
+          dispatch(ResetPassword(data, Toast, navigation, setLoading))
+        }
+      }
 
 
 
@@ -87,10 +68,13 @@ const Opportunities = ({ navigation }) => {
             <Toast ref={(ref) => { Toast.setref(ref) }} />
             <ScrollView>
                 <View
-                    style={{ marginTop: height * 0.04657 }}
+                    style={{ marginTop: responsiveHeight(2) }}
                 >
-
+          <View style={{ width: '85%', alignSelf: 'center' }}>
+            <Text style={{ color: 'gray', textAlign: 'justify' }}>Choose a password that is at least 8 characters long and nclude at least one uppercase letter and number</Text>
+          </View>
                     <InfoInput
+                    error={oldPass && ValidatePassword(oldPass)}
                         value={oldPass}
                         // source={require("../../../assets/images/profile.png")}
                         editable={edit}
@@ -102,6 +86,7 @@ const Opportunities = ({ navigation }) => {
                         value={newPass}
                         // source={require("../../../assets/images/profile.png")}
                         editable={edit}
+                        error={newPass && ValidatePassword(newPass)}
                         onChangeText={setnewPass}
                         secureTextEntry={show}
                         placeholder={Country == "UKRAINE" ? "Новий пароль" : "New Password"}
@@ -110,6 +95,7 @@ const Opportunities = ({ navigation }) => {
                         value={cNewPass}
                         // source={require("../../../assets/images/profile.png")}
                         editable={edit}
+                        error={cNewPass && ValidatePassword(cNewPass)}
                         placeholder={Country == "UKRAINE" ? "Підтвердити новий пароль" : "Confirm New Password"}
                         secureTextEntry={show}
                         onChangeText={setcNewPass}
@@ -117,6 +103,13 @@ const Opportunities = ({ navigation }) => {
                     <TouchableOpacity
                         onPress={() => { setshow(!show) }}
                     >
+                                  {
+            (newPass !== cNewPass && !ValidatePassword(cNewPass) && !ValidatePassword(newPass)) && (
+              <View style={{ width: '85%', alignSelf: 'center' }}>
+                <Text style={{ color: 'red', textAlign: 'justify' }}>Ensure your password matches the confirmation entry to proceed.</Text>
+              </View>
+            )
+          }
 
                         <Text
                             style={{

@@ -23,7 +23,7 @@ const InfoInput = props => {
   return (
     <View style={{ marginTop: height * 0.015 }}>
       <TextInput
-        style={styles.Info}
+        style={{...styles.Info,borderColor:props?.error?'red':'lightgray'}}
         onChangeText={props.onChangeText}
         value={props.value}
         placeholderTextColor={Colors.text}
