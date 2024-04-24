@@ -131,8 +131,15 @@ export const NewPassword = (data, navigation, user, setLoading) => async (dispat
     console.log('new pass', error);
   }
 };
+
+
+export const changeLanguage = (data) => async (dispatch) => {
+  dispatch({
+    type:types.CHANGE_LANGUAGE
+  })
+};
 // *************************** Update Profile ************************************
-export const UpdateProfile = (data, Toast) => async (dispatch) => {
+export const UpdateProfile = (data, Toast,setLoading) => async (dispatch) => {
   try {
 
     const response = await instance.put(`/auth/update/me`, data);
@@ -141,6 +148,7 @@ export const UpdateProfile = (data, Toast) => async (dispatch) => {
       type: types.USER,
       payload: response?.data?.data?.user,
     });
+    setLoading(false)
     Toast.show({
       type: 'success',
       text1: "Updated Succesfully!",
@@ -148,6 +156,7 @@ export const UpdateProfile = (data, Toast) => async (dispatch) => {
     })
 
   } catch (error) {
+    setLoading(false)
     console.log('Update user error', error);
   }
 };

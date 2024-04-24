@@ -68,6 +68,12 @@ const authReducer = (state = InitialState, action) => {
         ...state,
         Country: action.payload,
       };
+    case types.CHANGE_LANGUAGE:
+      console.log(action.payload);
+      return {
+        ...state,
+        Country: state.Country.toUpperCase() == "UKRAINE" ? "other" : "UKRAINE",
+      };
     default:
       return state;
   }

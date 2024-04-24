@@ -1,8 +1,8 @@
-import { Dimensions, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View, Image, ActivityIndicator } from 'react-native'
 import React from 'react'
 import Colors from '../../assets/Colors/Colors'
 import { useSelector } from 'react-redux'
-import { color } from 'react-native-reanimated'
+import { responsiveFontSize } from 'react-native-responsive-dimensions'
 let { width, height } = Dimensions.get("window")
 const SecondayButton = (props) => {
     const Country = useSelector((state) => state?.auth?.Country?.toUpperCase())
@@ -12,9 +12,11 @@ const SecondayButton = (props) => {
             onPress={props.onPress}
             style={[styles.secondarybtn, { backgroundColor: Country == "UKRAINE" ? Colors.Yellow : Colors.Orange }]}
         >
-            <Text
-                style={[styles.secondarytext, { color: Country == "UKRAINE" ? Colors.blackish : Colors.white }]}
-            >{props.title} </Text>
+            {props?.loader ? (<ActivityIndicator color={"white"} size={responsiveFontSize(2.5)} />) : (
+                <Text
+                    style={[styles.secondarytext, { color: Country == "UKRAINE" ? Colors.blackish : Colors.white }]}
+                >{props.title} </Text>
+            )}
         </TouchableOpacity>
     )
 }
@@ -28,9 +30,11 @@ const PrimaryButton = (props) => {
             onPress={props.onPress}
             style={[styles.PrimaryButton, { backgroundColor: Country == "UKRAINE" ? Colors.Yellow : Colors.Orange }]}
         >
-            <Text
-                style={[styles.Primarytext, { color: Country == "UKRAINE" ? Colors.blackish : Colors.white }]}
-            >{props.title} </Text>
+            {props?.loader ? (<ActivityIndicator color={"white"} size={responsiveFontSize(2.5)} />) : (
+                <Text
+                    style={[styles.Primarytext, { color: Country == "UKRAINE" ? Colors.blackish : Colors.white }]}
+                >{props.title} </Text>
+            )}
         </TouchableOpacity>
     )
 }

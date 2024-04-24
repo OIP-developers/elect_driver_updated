@@ -35,6 +35,7 @@ import Browser from '../../Screens/App/Browser';
 import { AuthContext } from '../../context/AuthContext';
 import Deposite from '../../Screens/App/DrawerScreens/Deposite';
 import Withdraw from '../../Screens/App/DrawerScreens/Withdraw';
+import { changeLanguage } from '../../redux/actions/user.action'
 
 let { width, height } = Dimensions.get("window")
 
@@ -127,6 +128,11 @@ const AppNav = (props) => {
       name: "learning",
       icon: require("../../assets/images/DrawerIcon/learning.png")
     },
+    {
+      label: Country == "UKRAINE" ? "Змінити на англійську" : "Change language to Ukraine",
+      name: "learning",
+      icon: require("../../assets/images/DrawerIcon/language.png")
+    },
   ]
   const CustomeDrawer = ({ navigation }) => {
     const ProfileData = useSelector((state) => state?.auth?.userInfo)
@@ -206,10 +212,18 @@ const AppNav = (props) => {
                   marginLeft: width * 0.035,
                   alignItems: "center"
                 }}
-                onPress={() => navigation.navigate(i.name)}
+                onPress={() => {
+                  if(i?.name=="learning"){
+                    dispatch(changeLanguage(Country))
+                  }else{
+                    navigation.navigate(i.name)
+                  }
+                }}
               >
                 <Image
-                  style={{ resizeMode: "contain", tintColor: Country == "UKRAINE" ? Colors.Bluetheme : Colors.theme }}
+                  style={[{ resizeMode: "contain", tintColor: Country == "UKRAINE" ? Colors.Bluetheme : Colors.theme },
+                i?.name=="learning"?{width:25,height:25}:{}
+                ]}
                   source={i.icon}
                 />
                 <Text

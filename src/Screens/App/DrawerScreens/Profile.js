@@ -19,7 +19,8 @@ const Profile = ({ navigation }) => {
     const [Ache, setAche] = useState()
     const [Compli, setCompli] = useState()
     const [pic, setpic] = useState()
-
+    const [loading, setLoading] = useState(false)
+    
     const dispatch = useDispatch()
     const onFromPickerImage = () => {
         var options = {
@@ -42,16 +43,25 @@ const Profile = ({ navigation }) => {
         });
     }
     const updateMe = () => {
+        setLoading(true)
         const data = {
             first_name: First,
             last_name: last,
             profile_picture: `${pic !== undefined ? pic?.data?.data?.file?.key : ProfileData?.profile_picture}`
+
         }
-        dispatch(UpdateProfile(data, Toast))
+        // console.log(data, "==================")
+        dispatch(UpdateProfile(data, Toast,()=>{
+            setLoading(false)
+            setedit(false)
+        }))
     }
     const save = () => {
-        updateMe();
-        setedit(false)
+        if(First && last){
+            updateMe();
+        }else{
+            Toast.show({type:'error',text1:"Please ensure all required fields are filled."})
+        }
     }
     const Accehvement = async () => {
         const data = await dispatch(Acheivements())
@@ -99,7 +109,6 @@ const Profile = ({ navigation }) => {
                     />
                 </TouchableOpacity>
             </View>
-            <Toast ref={(ref) => { Toast.setref(ref) }} />
             <ScrollView>
                 <TouchableOpacity
                     // style={{borderRadius:100}}
@@ -146,6 +155,7 @@ const Profile = ({ navigation }) => {
 
                     {
                         edit == true ? <PrimaryButton
+                            loader={loading}
                             onPress={() => { save() }}
                             title={Country == "UKRAINE" ? "зберегти" : "Save"} /> : null
                     }
@@ -280,6 +290,7 @@ const Profile = ({ navigation }) => {
                 </View>
 
             </ScrollView>
+            <Toast ref={(ref) => { Toast.setref(ref) }} />
         </SafeAreaView>
     )
 }
