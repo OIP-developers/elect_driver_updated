@@ -7,11 +7,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { LoginUser } from '../../redux/actions/user.action'
 import { Toast } from 'react-native-toast-message/lib/src/Toast'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { useNavigation } from '@react-navigation/native'
 import { responsiveHeight } from 'react-native-responsive-dimensions'
 
 let { width, height } = Dimensions.get("window")
 
-const Login = ({ navigation,fcm }) => {
+const Login = ({ fcm }) => {
+  const navigation=useNavigation()
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const [show, setshow] = useState(true)
