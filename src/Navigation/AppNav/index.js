@@ -36,6 +36,7 @@ import { AuthContext } from '../../context/AuthContext';
 import Deposite from '../../Screens/App/DrawerScreens/Deposite';
 import Withdraw from '../../Screens/App/DrawerScreens/Withdraw';
 import { changeLanguage } from '../../redux/actions/user.action'
+import { responsiveFontSize } from 'react-native-responsive-dimensions';
 
 let { width, height } = Dimensions.get("window")
 
@@ -157,8 +158,8 @@ const AppNav = (props) => {
             <Image
               style={{
                 margin: width * 0.01,
-                height: height * 0.08,
-                width: width * 0.15,
+                height: responsiveFontSize(7),
+                width: responsiveFontSize(7),
                 backgroundColor: Colors.placeholder,
                 resizeMode: "cover",
                 borderRadius: 100

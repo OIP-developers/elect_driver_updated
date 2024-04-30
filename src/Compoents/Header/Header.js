@@ -14,6 +14,7 @@ import { Socket_URL } from '../../config/config'
 import { STATUS } from '../../redux/const/const'
 import { useDispatch, useSelector } from 'react-redux'
 import { CHAT_ID } from '../../redux/actions/driver.action'
+import { responsiveFontSize } from 'react-native-responsive-dimensions'
 let { width, height } = Dimensions.get("window")
 const Header = (props) => {
     const [status, SetStatus] = useState(true)
@@ -107,8 +108,8 @@ export default Header
 const styles = StyleSheet.create({
     profile: {
         // resizeMode: "contain",
-        height: height * 0.045,
-        width: width * 0.085,
+        height: responsiveFontSize(5),
+        width: responsiveFontSize(5),
         marginLeft: -width * 0.0525,
         backgroundColor: Colors.placeholder,
         resizeMode: "cover",

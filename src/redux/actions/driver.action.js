@@ -335,17 +335,17 @@ export const AddNewCard = (data, navigation, setLoading) => async (dispatch) => 
     }
 };
 // *************************** Fund Donation Api ************************************
-export const FundDonation = (data, navigation, setdone) => async (dispatch) => {
+export const FundDonation = (data, navigation, setdone,setLoading) => async (dispatch) => {
     console.log("Donatipn card", data)
     try {
-        setdone(true)
         const response = await instance.post(`/invoice/fund-donation`, data);
         console.log("Donation ", response)
         if (response.data?.data) {
             setdone(true)
         }
-
+        setLoading && setLoading(false)
     } catch (error) {
+        setLoading && setLoading(false)
         console.log('error of Donation', error);
     }
 };

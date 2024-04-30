@@ -3,22 +3,47 @@ import React, { useEffect, useState } from 'react'
 import { PrimaryButton } from '../../../Compoents/Buttons/BTN'
 import Colors from '../../../assets/Colors/Colors'
 import { useDispatch, useSelector } from 'react-redux'
-import { FundDonation } from '../../../redux/actions/driver.action'
+import { FundDonation, SavedCards } from '../../../redux/actions/driver.action'
+import { responsiveHeight } from 'react-native-responsive-dimensions'
+import DropDownPicker from 'react-native-dropdown-picker';
+import Loader from '../../../Compoents/Loader'
 const { height, width } = Dimensions.get("window")
 const Account = ({ navigation }) => {
     const [tip, settip] = useState(0)
+    const [des, setDes] = useState("")
     const [done, setdone] = useState(false)
     const Country = useSelector((state) => state?.auth?.Country?.toUpperCase())
+
+    const [loading, setLoading] = useState(true)
+
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([]);
+
 
     const dispatch = useDispatch()
     const ProceedFundPAyment = () => {
         const data = {
-            amount: tip * 100
+            amount: tip * 100,
+            description: des,
+            cardId: value
         }
-        if (tip > 0) {
-            dispatch(FundDonation(data, navigation, setdone))
+        if (tip > 0 && value && des) {
+            setLoading(true)
+            dispatch(FundDonation(data, navigation, setdone, setLoading))
         }
     }
+
+    useEffect(() => {
+        dispatch(SavedCards()).then(data => {
+            setItems(data?.data?.data?.paymentMethod?.map((it) => {
+                return { label: "**** **** **** **** " + it?.card?.last4, value: it?.id }
+            }))
+            setLoading(false)
+        })
+    }, [])
+
+
     useEffect(() => {
         if (done == true) {
             setTimeout(function () {
@@ -28,6 +53,11 @@ const Account = ({ navigation }) => {
 
         }
     }, [done])
+
+    if (loading) {
+        return <Loader />
+    }
+
     return (
         <SafeAreaView
             style={{ flex: 1, backgroundColor: Colors.bg }}
@@ -91,18 +121,64 @@ const Account = ({ navigation }) => {
                                 alignSelf: "center",
                                 borderRadius: width * 0.025,
                                 borderColor: Colors.placeholder,
-                                marginBottom: height * 0.035,
-                                marginTop: height * 0.05,
-                                paddingLeft: width * 0.0145
+                                marginTop: responsiveHeight(2),
+                                paddingLeft: width * 0.0145,
+                                backgroundColor: 'white'
                             }}
                         >
                             <TextInput
-                                style={{ width: width * 0.65, color: "#000000",height:height*0.05 }}
+                                style={{ width: width * 0.65, color: "#000000", height: height * 0.05 }}
                                 placeholder={Country == "UKRAINE" ? "₴ Введіть суму" : '$ Enter Amount'}
                                 placeholderTextColor={"grey"}
                                 keyboardType='number-pad'
                                 onChangeText={settip}
                                 value={tip}
+                            />
+                        </View>
+                        <View
+                            style={{
+                                borderWidth: 1,
+                                width: width * 0.7,
+                                alignSelf: "center",
+                                borderRadius: width * 0.025,
+                                borderColor: Colors.placeholder,
+                                marginTop: responsiveHeight(2),
+                                paddingLeft: width * 0.0145,
+                                backgroundColor: 'white'
+                            }}
+                        >
+                            <TextInput
+                                style={{ width: width * 0.65, color: "#000000", textAlignVertical: 'top' }}
+                                placeholder={Country == "UKRAINE" ? "опис" : 'Description'}
+                                placeholderTextColor={"grey"}
+                                keyboardType='number-pad'
+                                multiline={true}
+                                numberOfLines={4}
+                                onChangeText={setDes}
+                                value={des}
+                            />
+                        </View>
+                        <View
+                            style={{
+                                width: width * 0.7,
+                                alignSelf: "center",
+                                borderColor: Colors.placeholder,
+                                marginTop: responsiveHeight(2),
+                                backgroundColor: 'white',
+                                zIndex: 1
+                            }}
+                        >
+                            <DropDownPicker
+                                open={open}
+                                value={value}
+                                items={items}
+                                setOpen={setOpen}
+                                style={{ borderColor: Colors.placeholder, borderWidth: 1 }}
+                                placeholderStyle={{ color: 'gray' }}
+                                placeholder='Select card'
+                                dropDownContainerStyle={{ borderColor: Colors.placeholder, borderWidth: 1 }}
+                                setValue={setValue}
+                                setItems={setItems}
                             />
                         </View>
                         <PrimaryButton
