@@ -5,8 +5,8 @@ import { AuthContext } from '../../context/AuthContext';
 import { useDispatch, useSelector } from 'react-redux';
 // import { RECEIVE_MESSAGES, SendMessage } from '../../redux/actions/ride.action';
 import { RECEIVE_MESSAGES, SendMessage } from '../../redux/actions/driver.action';
-import { Image, TouchableOpacity } from 'react-native';
-import { Platform } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { Platform,Keyboard } from 'react-native';
 
 
 
@@ -16,6 +16,28 @@ const ChatScreen = ({ navigation }) => {
   const { socket } = useContext(AuthContext)
   const RideDEtail = useSelector((state) => state?.auth?.ride?.ride)
   const dispatch = useDispatch()
+
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener(
+            'keyboardDidShow',
+            () => {
+                setKeyboardVisible(true); // or some other action
+            }
+        );
+        const keyboardDidHideListener = Keyboard.addListener(
+            'keyboardDidHide',
+            () => {
+                setKeyboardVisible(false); // or some other action
+            }
+        );
+
+        return () => {
+            keyboardDidHideListener.remove();
+            keyboardDidShowListener.remove();
+        };
+    }, []);
 
   socket.on('LISTEN_ROOM_MESSAGE', (data) => {
     console.log('LISTEN_ROOM_MESSAGE', data);
@@ -74,6 +96,7 @@ const ChatScreen = ({ navigation }) => {
 
   return (
     <>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
       <TouchableOpacity
         style={{ margin: 5, marginTop: Platform.OS == "ios" ? 25 : null }}
         onPress={() => { navigation.goBack() }}
@@ -82,6 +105,21 @@ const ChatScreen = ({ navigation }) => {
           source={require("../../assets/images/leftArrow.png")}
         />
       </TouchableOpacity>
+      {
+                    isKeyboardVisible && (
+                        <TouchableOpacity
+                            style={{ margin: 5, marginTop: Platform.OS == "ios" ? 25 : null }}
+                            onPress={() => { Keyboard.dismiss() }}
+                        >
+                            <Image
+
+                                style={{ width: 25, height: 25, marginTop: Platform.OS == "ios" ? 25 : null, margin: 5 }}
+                                source={require("../../assets/images/keyboard.png")}
+                            />
+                        </TouchableOpacity>
+                    )
+                }
+      </View>
       <GiftedChat
         messages={messages}
         onSend={onSend}
