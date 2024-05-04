@@ -40,6 +40,7 @@ const MainNav = () => {
     }
   }
   async function requestUserPermission() {
+    await messaging().registerDeviceForRemoteMessages();
     const authStatus = await messaging().requestPermission();
     const enabled =
       authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
