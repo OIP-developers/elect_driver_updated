@@ -20,7 +20,7 @@ const WaitingForPayment = ({ navigation }) => {
   });
   useEffect(() => {
     if (payment.type === "RIDE_RECEIVED_CASH_PAYMENT") {
-      navigation.navigate("CashPayment")
+      navigation.navigate("Home")
     } else if (payment.type === "RIDER_RECEIVED_ONLINE_PAYMENT") {
       navigation.navigate("CardPaymentSucces")
     }
